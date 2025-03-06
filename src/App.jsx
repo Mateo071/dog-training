@@ -29,7 +29,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/" element={
               <>
-                <h2 className="text-3xl font-bold mb-4">Welcome to Flores Dog Training</h2>
+                <h2 className="text-3xl font-bold mb-4">Welcome</h2>
                 <CTA />
                 <section className="bg-teal-600 rounded-lg shadow-lg mt-8 p-8">
                   <h2 className="text-3xl font-bold text-white mb-6">Why Us</h2>
