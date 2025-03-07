@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import SuccessStories from './components/SuccessStories';
 import GoogleReviews from './components/GoogleReviews';
+import Navbar from './components/Navbar';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
@@ -39,22 +40,7 @@ function App() {
 function MainLayout() {
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
-      <header className="fixed top-0 left-0 w-full bg-blue-600 shadow-md z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex justify-between items-center h-16">
-            <Link to="/" className="text-2xl font-bold text-white hover:text-gray-100 transition-colors">
-              Flores Dog Training
-            </Link>
-            <nav className="flex space-x-8">
-              <Link to="/about" className="text-white font-medium hover:text-gray-100 transition-colors">About</Link>
-              <Link to="/programs" className="text-white font-medium hover:text-gray-100 transition-colors">Programs</Link>
-              <Link to="/tips" className="text-white font-medium hover:text-gray-100 transition-colors">Tips</Link>
-              <Link to="/contact" className="text-white font-medium hover:text-gray-100 transition-colors">Contact</Link>
-              <Link to="/admin" className="text-white font-medium hover:text-gray-100 transition-colors">Admin</Link>
-            </nav>
-          </div>
-        </div>
-      </header>
+      <Navbar />
       <main className="container mx-auto px-4 pt-16 pb-8 flex-grow">
         <Routes>
           <Route path="/about" element={<h2 className="text-3xl font-bold mb-4">About Us</h2>} />
@@ -80,6 +66,7 @@ function MainLayout() {
                   </Link>
                 </div>
               </div>
+              <Testimonials />
               <SuccessStories />
               <CTA />
               <section className="bg-teal-600 rounded-lg shadow-lg mt-8 p-8">
@@ -100,7 +87,6 @@ function MainLayout() {
                 </div>
               </section>
               <GoogleReviews />
-              <Testimonials />
             </>
           } />
         </Routes>
