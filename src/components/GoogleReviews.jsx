@@ -7,7 +7,7 @@ function GoogleReviews() {
       name: "Amanda Parker",
       rating: 5,
       date: "2 weeks ago",
-      text: "Best dog training service in San Diego! Our German Shepherd went from being completely unmanageable to a perfect family companion. Maria is incredibly knowledgeable and patient. Worth every penny! 🐕",
+      text: "Best dog training service in Bradenton! Our German Shepherd went from being completely unmanageable to a perfect family companion. Maria is incredibly knowledgeable and patient. Worth every penny! 🐕",
       profileImage: "https://randomuser.me/api/portraits/women/44.jpg"
     },
     {
