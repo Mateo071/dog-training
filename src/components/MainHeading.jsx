@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 function MainHeading() {
   return (
     <div 
-    className="relative h-[600px] -mx-4 mb-12 flex items-center justify-center bg-cover bg-center"
+    className="relative h-[600px] -mx-4 mb-12 flex items-center justify-center bg-cover bg-center bg-fixed"
     style={{
       backgroundImage: 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&q=80&w=1920")'
     }}

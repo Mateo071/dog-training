@@ -68,7 +68,8 @@ function App() {
 
 function MainLayout() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col">
+    <div className="min-h-screen bg-gray-50 flex flex-col relative overfl">
+      <ParallaxShapes />
       <Navbar />
       <main className="container mx-auto px-4 pt-16 pb-8 flex-grow">
         <Routes>
@@ -80,7 +81,10 @@ function MainLayout() {
             <>
               <MainHeading />
               <Testimonials />
-              <SuccessStories />
+              <div className="relative">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50 pointer-events-none"></div>
+                <SuccessStories />
+              </div>
               <CTA />
               <WhyUs />
               <GoogleReviews />
