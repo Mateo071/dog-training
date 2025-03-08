@@ -15,7 +15,7 @@ function SuccessStories() {
       id: 1,
       dogName: "Tito",
       breed: "Pitbull Terrier",
-      image: "src/assets/tito.jpg",
+      image: "tito.jpg",
       challenge: "Severe anxiety and leash reactivity",
       achievement: "Walks freely off-leash, waits for orders before eating and crossing the street, and is relaxed around strangers.",
       duration: "8 weeks"
