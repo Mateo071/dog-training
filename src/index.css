@@ -1,3 +1,51 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+  --brand-blue: #2563eb;
+  --brand-teal: #0d9488;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#root {
+  height: 100vh;
+}
+
+.parallax-shape {
+  position: absolute;
+  pointer-events: none;
+  transition: transform 0.2s ease-out;
+}
+
+.shape-1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(37, 99, 235, 0.2));
+  border-radius: 50%;
+  right: -100px;
+  top: 20%;
+}
+
+.shape-2 {
+  width: 200px;
+  height: 200px;
+  background: linear-gradient(135deg, rgba(13, 148, 136, 0.1), rgba(13, 148, 136, 0.2));
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  left: -50px;
+  top: 40%;
+}
+
+.shape-3 {
+  width: 400px;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.05), rgba(13, 148, 136, 0.1));
+  border-radius: 63% 37% 54% 46% / 55% 48% 52% 45%;
+  left: 60%;
+  top: 60%;
+}
