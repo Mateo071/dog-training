@@ -29,7 +29,7 @@ function AboutUs() {
         <div className="space-y-6">
           <h2 className="text-3xl font-bold text-brand-blue">Marcelo's Journey</h2>
           <p className="text-gray-600 leading-relaxed">
-            Marcelo's path to becoming a dog trainer began during Hurricane Milton, when he rescued a Pitbull Terrier puppy named Tito. This life-changing encounter sparked a deep passion for understanding dog behavior and training techniques.
+            Marcelo's path to becoming a dog trainer began during Hurricane Milton, when he rescued a Pitbull Terrier puppy named Tito. This life-changing encounter sparked a deep passion for understanding dog behavior and training techniques. He is now a regular volunteer at the Humane Society at Lakewood Ranch.
           </p>
           <p className="text-gray-600 leading-relaxed">
             As a dedicated animal lover, Marcelo continuously stays at the forefront of animal behavioral science and nutrition. His commitment to learning ensures that our training methods are always based on the latest research and most effective techniques.
