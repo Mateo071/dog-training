@@ -13,7 +13,7 @@ function MainHeading() {
       <p className="text-xl mb-8">Experience the joy of a well-trained companion. Our proven methods create lasting bonds and happy, obedient dogs that make family life even more wonderful.</p>
       <Link 
         to="/programs" 
-        className="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
+        className="inline-block bg-teal-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-teal-700 transition-colors"
       >
         Explore Our Programs
       </Link>

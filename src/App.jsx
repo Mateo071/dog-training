@@ -68,7 +68,7 @@ function App() {
 
 function MainLayout() {
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col relative overfl">
+    <div className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden">
       <ParallaxShapes />
       <Navbar />
       <main className="container mx-auto px-4 pt-16 pb-8 flex-grow">

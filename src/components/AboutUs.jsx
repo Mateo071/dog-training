@@ -10,7 +10,7 @@ function AboutUs() {
             <div className="md:flex-shrink-0">
               <img
                 className="h-96 w-full object-cover md:w-96"
-                src="https://images.unsplash.com/photo-1593419522318-81b7c346a3e5?auto=format&fit=crop&q=80&w=600"
+                src="./src/assets/parents.jpg"
                 alt="Marcelo and Paty with their dogs"
               />
             </div>

@@ -2,13 +2,22 @@ import React from 'react';
 
 function SuccessStories() {
   const stories = [
+    // {
+    //   id: 1,
+    //   dogName: "Max",
+    //   breed: "German Shepherd",
+    //   image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&q=80&w=300&h=300",
+    //   challenge: "Severe anxiety and leash reactivity",
+    //   achievement: "Now confidently walks in busy areas and plays well with other dogs",
+    //   duration: "8 weeks"
+    // },
     {
       id: 1,
-      dogName: "Max",
-      breed: "German Shepherd",
-      image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&q=80&w=300&h=300",
+      dogName: "Tito",
+      breed: "Pitbull Terrier",
+      image: "src/assets/tito.jpg",
       challenge: "Severe anxiety and leash reactivity",
-      achievement: "Now confidently walks in busy areas and plays well with other dogs",
+      achievement: "Walks freely off-leash, waits for orders before eating and crossing the street, and is relaxed around strangers.",
       duration: "8 weeks"
     },
     {
@@ -59,7 +68,7 @@ function SuccessStories() {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                     <span className="text-sm text-gray-500">Training Duration:</span>
-                    <span className="text-sm font-medium text-blue-600">{story.duration}</span>
+                    <span className="text-sm font-medium text-teal-600">{story.duration}</span>
                   </div>
                 </div>
               </div>
