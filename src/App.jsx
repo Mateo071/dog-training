@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Admin, Resource, ListGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { StyledEngineProvider } from '@mui/material/styles';
+import { useEffect } from 'react';
 import Contact from './components/Contact';
 import CTA from './components/CTA';
 import Programs from './components/Programs';
@@ -13,6 +14,7 @@ import GoogleReviews from './components/GoogleReviews';
 import Navbar from './components/Navbar';
 import MainHeading from './components/MainHeading';
 import WhyUs from './components/WhyUs';
+import AboutUs from './components/AboutUs';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
@@ -25,6 +27,31 @@ function AdminApp() {
         <Resource name="comments" list={ListGuesser} />
       </Admin>
     </StyledEngineProvider>
+  );
+}
+
+function ParallaxShapes() {
+  useEffect(() => {
+    const handleParallax = (e) => {
+      const shapes = document.querySelectorAll('.parallax-shape');
+      shapes.forEach(shape => {
+        const speed = shape.getAttribute('data-speed') || 0.2;
+        const x = (window.innerWidth - e.pageX * speed) / 100;
+        const y = (window.innerHeight - e.pageY * speed) / 100;
+        shape.style.transform = `translateX(${x}px) translateY(${y}px)`;
+      });
+    };
+
+    document.addEventListener('mousemove', handleParallax);
+    return () => document.removeEventListener('mousemove', handleParallax);
+  }, []);
+
+  return (
+    <>
+      <div className="parallax-shape shape-1" data-speed="0.2"></div>
+      <div className="parallax-shape shape-2" data-speed="0.3"></div>
+      <div className="parallax-shape shape-3" data-speed="0.1"></div>
+    </>
   );
 }
 
@@ -45,7 +72,7 @@ function MainLayout() {
       <Navbar />
       <main className="container mx-auto px-4 pt-16 pb-8 flex-grow">
         <Routes>
-          <Route path="/about" element={<h2 className="text-3xl font-bold mb-4">About Us</h2>} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/tips" element={<Tips />} />
           <Route path="/contact" element={<Contact />} />
@@ -66,4 +93,4 @@ function MainLayout() {
   );
 }
 
-export default App;
+export default App
