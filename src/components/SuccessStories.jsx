@@ -43,18 +43,23 @@ function SuccessStories() {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12">Success Stories</h2>
+        <div className="relative mb-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/10 to-brand-teal/10 rounded-lg transform -skew-y-2"></div>
+          <h2 className="relative text-3xl font-bold text-center py-4">Success Stories</h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {stories.map(story => (
             <div key={story.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
-              <img
-                src={story.image}
-                alt={`${story.dogName} the ${story.breed}`}
-                className="w-full h-64 object-cover"
-              />
+              <div className="relative h-0 pb-[100%]">
+                <img
+                  src={story.image}
+                  alt={`${story.dogName} the ${story.breed}`}
+                  className="absolute inset-0 w-full h-full object-cover"
+                />
+              </div>
               <div className="p-6">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="text-xl font-bold text-blue-600">{story.dogName}</h3>
+                  <h3 className="text-xl font-bold text-brand-blue">{story.dogName}</h3>
                   <span className="text-sm font-medium text-gray-500">{story.breed}</span>
                 </div>
                 <div className="space-y-4">
@@ -68,7 +73,7 @@ function SuccessStories() {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                     <span className="text-sm text-gray-500">Training Duration:</span>
-                    <span className="text-sm font-medium text-teal-600">{story.duration}</span>
+                    <span className="text-sm font-medium text-brand-blue">{story.duration}</span>
                   </div>
                 </div>
               </div>
