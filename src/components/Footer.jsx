@@ -35,7 +35,7 @@ function Footer() {
           <div>
             <h3 className="text-xl font-semibold mb-4">Contact Info</h3>
             <ul className="space-y-2 text-gray-300">
-              <li>Email: marceloflores@floresdogtraining.com</li>
+              <li>Email: floresdogtrainer@gmail.com</li>
               <li>Phone: (240) 408-6897</li>
               <li>Location: Lakewood Ranch, FL</li>
             </ul>

@@ -73,7 +73,7 @@ function SuccessStories() {
                   </div>
                   <div className="flex justify-between items-center pt-4 border-t border-gray-200">
                     <span className="text-sm text-gray-500">Training Duration:</span>
-                    <span className="text-sm font-medium text-brand-blue">{story.duration}</span>
+                    <span className="text-sm font-medium text-brand-teal">{story.duration}</span>
                   </div>
                 </div>
               </div>
