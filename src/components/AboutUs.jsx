@@ -1,6 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 function AboutUs() {
+  const navigate = useNavigate();
+
   return (
     <div className="max-w-6xl mx-auto py-12">
       <div className="relative mb-16">
@@ -82,7 +85,7 @@ function AboutUs() {
           Let us help you build a stronger, happier relationship with your dog. Contact us today to learn more about our training programs.
         </p>
         <button 
-          onClick={() => window.location.href = '/contact'}
+          onClick={() => navigate('/contact')}
           className="bg-white text-brand-blue px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
         >
           Get Started
