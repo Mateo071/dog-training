@@ -1,44 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { successStories } from '../data/successStories';
 
-function SuccessStories() {
-  const stories = [
-    // {
-    //   id: 1,
-    //   dogName: "Max",
-    //   breed: "German Shepherd",
-    //   image: "https://images.unsplash.com/photo-1589941013453-ec89f33b5e95?auto=format&fit=crop&q=80&w=300&h=300",
-    //   challenge: "Severe anxiety and leash reactivity",
-    //   achievement: "Now confidently walks in busy areas and plays well with other dogs",
-    //   duration: "8 weeks"
-    // },
-    {
-      id: 1,
-      dogName: "Tito",
-      breed: "Pitbull Terrier",
-      image: "tito.jpg",
-      challenge: "Severe anxiety and leash reactivity",
-      achievement: "Walks freely off-leash, waits for orders before eating and crossing the street, and is relaxed around strangers.",
-      duration: "8 weeks"
-    },
-    {
-      id: 2,
-      dogName: "Luna",
-      breed: "Golden Retriever Puppy",
-      image: "https://images.unsplash.com/photo-1633722715463-d30f4f325e24?auto=format&fit=crop&q=80&w=300&h=300",
-      challenge: "Excessive jumping and mouthing",
-      achievement: "Learned proper greetings and gentle play",
-      duration: "6 weeks"
-    },
-    {
-      id: 3,
-      dogName: "Rocky",
-      breed: "Pit Bull Mix",
-      image: "https://images.unsplash.com/photo-1617895153857-82fe79adfcd4?auto=format&fit=crop&q=80&w=300&h=300",
-      challenge: "Resource guarding and food aggression",
-      achievement: "Now shares toys and eats calmly around others",
-      duration: "12 weeks"
-    }
-  ];
+function SuccessStories({ limit }) {
+  const displayedStories = limit ? successStories.slice(0, limit) : successStories;
 
   return (
     <section className="py-12">
@@ -48,8 +13,12 @@ function SuccessStories() {
           <h2 className="relative text-3xl font-bold text-center py-4">Success Stories</h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {stories.map(story => (
-            <div key={story.id} className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105">
+          {displayedStories.map(story => (
+            <Link
+              key={story.id}
+              to={`/success-stories/${story.id}`}
+              className="bg-white rounded-lg shadow-lg overflow-hidden transform transition-transform hover:scale-105"
+            >
               <div className="relative h-0 pb-[100%]">
                 <img
                   src={story.image}
@@ -77,9 +46,19 @@ function SuccessStories() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
+        {limit && (
+          <div className="text-center mt-8">
+            <Link
+              to="/success-stories"
+              className="inline-block text-brand-teal px-6 py-3 text-lg font-semibold hover:text-brand-teal-dark transition-colors"
+            >
+              View More Success Stories
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

@@ -10,11 +10,14 @@ import Tips from './components/Tips';
 import Testimonials from './components/Testimonials';
 import Footer from './components/Footer';
 import SuccessStories from './components/SuccessStories';
+import SuccessStory from './components/SuccessStory';
+import AllSuccessStories from './components/AllSuccessStories';
 import GoogleReviews from './components/GoogleReviews';
+import AboutUs from './components/AboutUs';
 import Navbar from './components/Navbar';
 import MainHeading from './components/MainHeading';
 import WhyUs from './components/WhyUs';
-import AboutUs from './components/AboutUs';
+import TipArticle from './components/TipArticle';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
@@ -76,15 +79,15 @@ function MainLayout() {
           <Route path="/about" element={<AboutUs />} />
           <Route path="/programs" element={<Programs />} />
           <Route path="/tips" element={<Tips />} />
+          <Route path="/tips/:id" element={<TipArticle />} />
+          <Route path="/success-stories" element={<AllSuccessStories />} />
+          <Route path="/success-stories/:id" element={<SuccessStory />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={
             <>
               <MainHeading />
               <Testimonials />
-              <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-50 pointer-events-none"></div>
-                <SuccessStories />
-              </div>
+              <SuccessStories limit={3} />
               <CTA />
               <WhyUs />
               <GoogleReviews />
