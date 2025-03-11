@@ -10,26 +10,25 @@ function Tips() {
       <div className="space-y-6">
         {articles.map(article => (
           <div 
-            key={article.id}
-            className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
-          >
-            <div className="p-6">
-              <div className="flex justify-between items-start mb-2">
-                <h3 className="text-xl font-semibold text-blue-600">{article.title}</h3>
-                <span className="text-sm text-gray-500">{article.date}</span>
+              key={article.id}
+              className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
+            >
+            <Link to={`/tips/${article.id}`}>
+              <div className="p-6">
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="text-xl font-semibold text-brand-teal">{article.title}</h3>
+                  <span className="text-sm text-gray-500">{article.date}</span>
+                </div>
+                
+                <div className="prose max-w-none">
+                  <p className="text-gray-600">{article.preview}</p>
+                </div>
+                
+                <div className="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium">
+                  Read More
+                </div>
               </div>
-              
-              <div className="prose max-w-none">
-                <p className="text-gray-600">{article.preview}</p>
-              </div>
-              
-              <Link 
-                to={`/tips/${article.id}`}
-                className="mt-4 inline-block text-blue-600 hover:text-blue-800 font-medium"
-              >
-                Read More
-              </Link>
-            </div>
+            </Link>
           </div>
         ))}
       </div>
