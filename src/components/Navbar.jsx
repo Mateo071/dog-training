@@ -32,7 +32,6 @@ function Navbar() {
             <Link to="/programs" className="text-white font-medium hover:text-gray-100 transition-colors">Programs</Link>
             <Link to="/tips" className="text-white font-medium hover:text-gray-100 transition-colors">Tips</Link>
             <Link to="/contact" className="text-white font-medium hover:text-gray-100 transition-colors">Contact</Link>
-            <Link to="/admin" className="text-white font-medium hover:text-gray-100 transition-colors">Admin</Link>
           </nav>
         </div>
       </div>
