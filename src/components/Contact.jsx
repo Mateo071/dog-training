@@ -97,11 +97,12 @@ function Contact() {
                 <select
                   type="text"
                   id="dropdown"
+                  name="program"
                   value={formData.program}
                   onChange={handleChange}
                   required
                   className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-brand-blue focus:ring focus:ring-brand-blue/20 transition-colors bg-white">
-                  <option value="blank"></option>
+                  <option value="">Select a program</option>
                   <option value="puppyTraining">Puppy Training</option>
                   <option value="adultDogTraining">Adult Dog Training</option>
                   <option value="other">Other</option>
