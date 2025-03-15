@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-route
 import { Admin, Resource, ListGuesser } from 'react-admin';
 import jsonServerProvider from 'ra-data-json-server';
 import { StyledEngineProvider } from '@mui/material/styles';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Contact from './components/Contact';
 import CTA from './components/CTA';
 import Programs from './components/Programs';
@@ -18,6 +18,7 @@ import Navbar from './components/Navbar';
 import MainHeading from './components/MainHeading';
 import WhyUs from './components/WhyUs';
 import TipArticle from './components/TipArticle';
+import MobileNav from './components/MobileNav';
 
 const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
 
@@ -81,10 +82,27 @@ function App() {
 }
 
 function MainLayout() {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+ 
+    window.addEventListener('resize', handleResize);
+  })
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col relative overflow-hidden">
       <ParallaxShapes />
-      <Navbar />
+      {
+        isMobile &&
+          <MobileNav />
+        ||
+          <section>
+            <Navbar />
+          </section>
+      }
       <main className="container mx-auto px-4 pt-16 pb-8 flex-grow">
         <Routes>
           <Route path="/about" element={<AboutUs />} />

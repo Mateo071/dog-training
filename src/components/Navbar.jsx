@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { routes } from '../data/routes';
 
 function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -28,10 +29,11 @@ function Navbar() {
             Flores Dog Training
           </Link>
           <nav className="flex space-x-8">
-            <Link to="/about" className="text-white font-medium hover:text-gray-100 transition-colors">About</Link>
-            <Link to="/programs" className="text-white font-medium hover:text-gray-100 transition-colors">Programs</Link>
-            <Link to="/tips" className="text-white font-medium hover:text-gray-100 transition-colors">Tips</Link>
-            <Link to="/contact" className="text-white font-medium hover:text-gray-100 transition-colors">Contact</Link>
+            {
+              routes.map(route => (
+                <Link to={route.path} key={route.id} className="text-white font-medium hover:text-gray-100 transition-colors">{route.name}</Link>
+              ))
+            }
           </nav>
         </div>
       </div>
