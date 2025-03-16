@@ -26,6 +26,7 @@ function MobileNav() {
 
   return (
     <nav 
+      ref={ref}
       className={`fixed top-0 left-0 w-full h-16 bg-brand-blue shadow-lg z-50 transition-transform duration-300 text-white ${
         visible ? 'translate-y-0' : '-translate-y-full'
       }`}
