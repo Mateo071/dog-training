@@ -26,12 +26,12 @@ function MobileNav() {
 
   return (
     <nav 
-      className={`lg:hidden absolute top-0 left-0 w-full h-16 bg-brand-blue shadow-lg z-50 transition-transform duration-300 text-white ${
-        visible ? 'translate-y-0' : 'translate-y-full'
+      className={`fixed top-0 left-0 w-full h-16 bg-brand-blue shadow-lg z-50 transition-transform duration-300 text-white ${
+        visible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
-      <div className='relative top-3 grid grid-cols-5 gap-6'>
-        <Link to="/" className="relative text-2xl top-2 font-bold col-span-4 transition-colors">
+      <div className='relative container top-3 grid grid-cols-5 gap-6'>
+        <Link to="/" className="relative ml-5 text-2xl top-2 font-bold col-span-4 transition-colors">
           Flores Dog Training
         </Link>
         <Hamburger toggled={isOpen} size={20} toggle={setIsOpen} />
@@ -46,7 +46,7 @@ function MobileNav() {
             transition={{ duration: 0.2 }}
             className="fixed left-0 shadow-4xl right-0 top-[3.5rem] p-5 pt-0"
           >
-            <ul className='grid gap-2 z-20'>
+            <ul className='grid gap-2 z-20 mt-4'>
               {
                 routes.map((route, idx) => (
                   <motion.li
