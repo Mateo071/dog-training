@@ -1,13 +1,26 @@
 import React, { useState } from 'react';
+import emailjs from "@emailjs/browser";
+import Alert from '../components/Alert'
+
+const useAlert = () => {
+  const [alert, setAlert] = useState({ show: false, text: '', type: 'danger' });
+
+  const showAlert = ({ text, type = 'danger' }) => setAlert({ show: true, text, type });
+  const hideAlert = () => setAlert({ show: false, text: '', type: 'danger' });
+
+  return { alert, showAlert, hideAlert };
+};
 
 function Contact() {
+  const { alert, showAlert, hideAlert } = useAlert();
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     program: '',
     message: '',
-    media: null
+    // media: null
   });
 
   const handleChange = (e) => {
@@ -18,21 +31,71 @@ function Contact() {
     }));
   };
 
-  const handleFileChange = (e) => {
-    setFormData(prev => ({
-      ...prev,
-      media: e.target.files[0]
-    }));
-  };
+  // const handleFileChange = (e) => {
+  //   setFormData(prev => ({
+  //     ...prev,
+  //     media: e.target.files[0]
+  //   }));
+  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+    setLoading(true);
+    console.log('Form submitted:',import.meta.env.EMAILJS_SERVICE_ID, formData);
+    
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          to_name: "Flores Dog Training",
+          from_email: formData.email,
+          to_email: "floresdogtrainer@gmail.com",
+          phone: formData.phone,
+          program: formData.program,
+          message: formData.message,
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(
+        () => {
+          setLoading(false);
+          showAlert({
+            show: true,
+            text: "Thank you for your message 🐶",
+            type: "success",
+          });
+
+          setTimeout(() => {
+            hideAlert(false);
+            setFormData({
+              name: '',
+              phone: '',
+              email: '',
+              program: '',
+              message: '',
+            });
+          }, [3000]);
+        },
+        (error) => {
+          setLoading(false);
+          console.error(error);
+
+          showAlert({
+            show: true,
+            text: "Sorry, please try again or email us at floresdogtrainer@gmail.com 🐕",
+            type: "danger",
+          });
+        }
+      );
   };
 
   return (
     <div className="max-w-4xl mx-auto py-12">
+      {
+        alert.show && <Alert {...alert} />
+      }
       <div className="relative mb-12">
         <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/10 to-brand-teal/10 rounded-lg transform -skew-y-2"></div>
         <div className="relative bg-white rounded-lg shadow-xl overflow-hidden">
@@ -56,6 +119,7 @@ function Contact() {
                   type="text"
                   id="name"
                   name="name"
+                  placeholder='John Smith'
                   value={formData.name}
                   onChange={handleChange}
                   required
@@ -69,6 +133,7 @@ function Contact() {
                   type="tel"
                   id="phone"
                   name="phone"
+                  placeholder='(123) 456-7890'
                   value={formData.phone}
                   onChange={handleChange}
                   required
@@ -85,6 +150,7 @@ function Contact() {
                   type="email"
                   id="email"
                   name="email"
+                  placeholder='john.smith@gmail.com'
                   value={formData.email}
                   onChange={handleChange}
                   required
@@ -115,6 +181,7 @@ function Contact() {
               <textarea
                 id="message"
                 name="message"
+                placeholder='Please tell us some info about your dog and what you are looking for...'
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -123,7 +190,7 @@ function Contact() {
               />
             </div>
 
-            <div>
+            {/* <div>
               <label htmlFor="media" className="block text-sm font-medium text-brand-blue">Upload Media:</label>
               <input
                 type="file"
@@ -139,14 +206,15 @@ function Contact() {
                   hover:file:bg-gray-50
                   transition-colors"
               />
-            </div>
+            </div> */}
 
             <div className="bg-gradient-to-r from-brand-blue to-brand-teal rounded-lg p-1 mt-8">
               <button
                 type="submit"
+                disabled={loading}
                 className="w-full bg-gradient-to-r from-brand-blue to-brand-teal text-white py-3 px-6 rounded-md hover:bg-gradient-to-r hover:from-brand-blue-dark hover:to-brand-teal-dark focus:outline-none focus:ring-1 focus:ring-white focus:ring-offset-1 focus:ring-offset-brand-blue transition-colors font-semibold text-lg"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
             </div>
           </form>
