@@ -1,6 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { Admin, Resource, ListGuesser } from 'react-admin';
-import jsonServerProvider from 'ra-data-json-server';
 import { StyledEngineProvider } from '@mui/material/styles';
 import { useState, useEffect } from 'react';
 import Contact from './components/Contact';
@@ -19,20 +17,6 @@ import MainHeading from './components/MainHeading';
 import WhyUs from './components/WhyUs';
 import TipArticle from './components/TipArticle';
 import MobileNav from './components/MobileNav';
-
-const dataProvider = jsonServerProvider('https://jsonplaceholder.typicode.com');
-
-function AdminApp() {
-  return (
-    <StyledEngineProvider injectFirst>
-      <Admin basename="/admin" dataProvider={dataProvider} requireAuth={false}>
-        <Resource name="users" list={ListGuesser} />
-        <Resource name="posts" list={ListGuesser} />
-        <Resource name="comments" list={ListGuesser} />
-      </Admin>
-    </StyledEngineProvider>
-  );
-}
 
 function ParallaxShapes() {
   useEffect(() => {
@@ -74,7 +58,6 @@ function App() {
     <Router>
       <ScrollToTop />
       <Routes>
-        <Route path="/admin/*" element={<AdminApp />} />
         <Route path="/*" element={<MainLayout />} />
       </Routes>
     </Router>
