@@ -1,14 +1,11 @@
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Squash as Hamburger } from 'hamburger-react';
-import { useClickAway } from 'react-use';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { routes } from '../data/routes';
-import { div } from 'framer-motion/client';
 
 function MobileNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const ref = useRef(null);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
 
@@ -17,22 +14,27 @@ function MobileNav() {
       const currentScrollPos = window.scrollY;
       setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 10);
       setPrevScrollPos(currentScrollPos);
+
+      setIsOpen(false);
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [prevScrollPos]);
 
-  useClickAway(ref, () => setIsOpen(false));
+
+  function closeMenu() {
+    setIsOpen(false);
+  }
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full h-16 bg-brand-blue shadow-lg z-50 transition-transform duration-300 text-white ${
+      className={`fixed top-0 left-0 w-full h-16 bg-brand-blue shadow-lg z-10 transition-transform duration-300 text-white ${
         visible ? 'translate-y-0' : '-translate-y-full'
       }`}
     >
       <div className='relative container top-3 grid grid-cols-5 gap-6'>
-        <Link to="/" className="relative ml-5 text-2xl top-2 font-bold col-span-4 transition-colors">
+        <Link onClick={closeMenu} to="/" className="relative ml-5 text-2xl top-2 font-bold col-span-4 transition-colors">
           Flores Dog Training
         </Link>
         <Hamburger toggled={isOpen} size={20} toggle={setIsOpen} />
@@ -41,7 +43,9 @@ function MobileNav() {
       {
         isOpen && (
           <div
-            className='w-screen h-screen'>
+            className='w-screen h-screen'
+            onClick={closeMenu}
+          >
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -50,7 +54,6 @@ function MobileNav() {
               className="fixed left-0 shadow-4xl right-0 top-[3.5rem] p-5 pt-0"
             >
               <ul
-                ref={ref}
                 className='grid gap-2 z-20 mt-4'>
                 {
                   routes.map((route, idx) => (
