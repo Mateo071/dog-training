@@ -41,7 +41,6 @@ function Contact() {
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log('Form submitted:',import.meta.env.EMAILJS_SERVICE_ID, formData);
     
     emailjs
       .send(
