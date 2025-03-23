@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { StyledEngineProvider } from '@mui/material/styles';
 import { useState, useEffect } from 'react';
 import Contact from './components/Contact';
 import CTA from './components/CTA';
@@ -82,9 +81,7 @@ function MainLayout() {
         isMobile &&
           <MobileNav />
         ||
-          <section>
-            <Navbar />
-          </section>
+          <Navbar />
       }
       <main className="container mx-auto px-4 pt-16 pb-8 flex-grow">
         <Routes>

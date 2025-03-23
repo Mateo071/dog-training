@@ -1,15 +1,15 @@
 export const successStories = [
   
   {
-    "id": 1,
-    "dogName": "Tito",
-    "breed": "Pit Bull Terrier",
-    "image": "/tito.jpg",
-    "challenge": "Aggressiveness with other dogs",
-    "achievement": "Now walks freely off-leash, waits for orders before eating and crossing streets, and is relaxed around new dogs and people",
-    "duration": "15 weeks",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "fullStory": "Tito was highly reactive towards other dogs, making walks stressful and socialization nearly impossible.\n\nWe focused on:\n- Structured socialization exercises\n- Obedience training with impulse control\n- Positive reinforcement for calm behavior\n\nAfter 15 weeks, Tito is now a well-mannered dog who enjoys off-leash walks, listens attentively to commands, and remains relaxed in social settings." 
+    id: 1,
+    dogName: "Tito",
+    breed: "Pit Bull Terrier",
+    image: "/tito.jpg",
+    challenge: "Aggressiveness with other dogs",
+    achievement: "Now walks freely off-leash, waits for orders before eating and crossing streets, and is relaxed around new dogs and people",
+    duration: "15 weeks",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    fullStory: "Tito was highly reactive towards other dogs, making walks stressful and socialization nearly impossible.\n\nWe focused on:\n- Structured socialization exercises\n- Obedience training with impulse control\n- Positive reinforcement for calm behavior\n\nAfter 15 weeks, Tito is now a well-mannered dog who enjoys off-leash walks, listens attentively to commands, and remains relaxed in social settings." 
   },
   {
     id: 2,
@@ -177,58 +177,58 @@ We taught:
 Now Bailey greets guests politely, making visits enjoyable for everyone.`
   },
   {
-    "id": 11,
-    "dogName": "Cooper",
-    "breed": "Boxer",
-    "image": "https://images.pexels.com/photos/825947/pexels-photo-825947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "challenge": "Jumping on furniture and counters",
-    "achievement": "Stays off furniture unless invited",
-    "duration": "5 weeks",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "fullStory": "Cooper would constantly jump on furniture and counters, making mealtimes chaotic and training difficult.\n\nWe implemented:\n- Consistent boundary training\n- Teaching 'off' and rewarding alternative behaviors\n- Structured obedience work\n\nNow, Cooper stays off furniture unless invited and respects boundaries."
+    id: 11,
+    dogName: "Cooper",
+    breed: "Boxer",
+    image: "https://images.pexels.com/photos/825947/pexels-photo-825947.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    challenge: "Jumping on furniture and counters",
+    achievement: "Stays off furniture unless invited",
+    duration: "5 weeks",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    fullStory: "Cooper would constantly jump on furniture and counters, making mealtimes chaotic and training difficult.\n\nWe implemented:\n- Consistent boundary training\n- Teaching 'off' and rewarding alternative behaviors\n- Structured obedience work\n\nNow, Cooper stays off furniture unless invited and respects boundaries."
   },
   {
-    "id": 12,
-    "dogName": "Sadie",
-    "breed": "Alaskan Malamute",
-    "image": "https://images.pexels.com/photos/245035/pexels-photo-245035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "challenge": "Excessive digging in the yard",
-    "achievement": "Uses designated digging area only",
-    "duration": "6 weeks",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "fullStory": "Sadie would dig up the garden and lawn, creating a mess for her owners.\n\nWe worked on:\n- Providing a designated digging area\n- Redirecting her to appropriate activities\n- Rewarding use of the designated space\n\nNow, Sadie enjoys digging but only in her assigned area."
+    id: 12,
+    dogName: "Sadie",
+    breed: "Alaskan Malamute",
+    image: "https://images.pexels.com/photos/245035/pexels-photo-245035.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    challenge: "Excessive digging in the yard",
+    achievement: "Uses designated digging area only",
+    duration: "6 weeks",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    fullStory: "Sadie would dig up the garden and lawn, creating a mess for her owners.\n\nWe worked on:\n- Providing a designated digging area\n- Redirecting her to appropriate activities\n- Rewarding use of the designated space\n\nNow, Sadie enjoys digging but only in her assigned area."
   },
   {
-    "id": 13,
-    "dogName": "Duke",
-    "breed": "Swiss Shepherd",
-    "image": "https://images.pexels.com/photos/46505/swiss-shepherd-dog-dog-pet-portrait-46505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "challenge": "Aggression toward visitors",
-    "achievement": "Now greets visitors calmly and politely",
-    "duration": "12 weeks",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "fullStory": "Duke would lunge and bark aggressively at any guests entering the home.\n\nWe focused on:\n- Confidence-building exercises\n- Controlled exposure to guests\n- Reinforcing calm greetings\n\nNow, Duke stays relaxed when visitors arrive and interacts politely."
+    id: 13,
+    dogName: "Duke",
+    breed: "Swiss Shepherd",
+    image: "https://images.pexels.com/photos/46505/swiss-shepherd-dog-dog-pet-portrait-46505.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    challenge: "Aggression toward visitors",
+    achievement: "Now greets visitors calmly and politely",
+    duration: "12 weeks",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    fullStory: "Duke would lunge and bark aggressively at any guests entering the home.\n\nWe focused on:\n- Confidence-building exercises\n- Controlled exposure to guests\n- Reinforcing calm greetings\n\nNow, Duke stays relaxed when visitors arrive and interacts politely."
   },
   {
-    "id": 14,
-    "dogName": "Zeus",
-    "breed": "Australian Shepherd",
-    "image": "https://images.pexels.com/photos/1458916/pexels-photo-1458916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "challenge": "Fear of stairs",
-    "achievement": "Comfortably climbs stairs",
-    "duration": "8 weeks",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "fullStory": "Zeus would freeze at the sight of stairs and refuse to go up or down.\n\nWe worked on:\n- Gradual exposure with rewards\n- Confidence-building through structured exercises\n- Positive reinforcement for small successes\n\nNow, Zeus confidently climbs stairs without hesitation."
+    id: 14,
+    dogName: "Zeus",
+    breed: "Australian Shepherd",
+    image: "https://images.pexels.com/photos/1458916/pexels-photo-1458916.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    challenge: "Fear of stairs",
+    achievement: "Comfortably climbs stairs",
+    duration: "8 weeks",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    fullStory: "Zeus would freeze at the sight of stairs and refuse to go up or down.\n\nWe worked on:\n- Gradual exposure with rewards\n- Confidence-building through structured exercises\n- Positive reinforcement for small successes\n\nNow, Zeus confidently climbs stairs without hesitation."
   },
   {
-    "id": 15,
-    "dogName": "Bailey",
-    "breed": "Poodle",
-    "image": "https://images.pexels.com/photos/981062/pexels-photo-981062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "challenge": "Chasing cars and bicycles",
-    "achievement": "Ignores fast-moving objects",
-    "duration": "10 weeks",
-    "videoUrl": "https://www.youtube.com/embed/dQw4w9WgXcQ",
-    "fullStory": "Bailey had a strong herding instinct and would chase anything that moved, putting himself in danger.\n\nWe worked on:\n- Teaching impulse control\n- Redirecting focus onto his handler\n- Rewarding calm behavior near moving objects\n\nNow, Bailey remains focused on his owner and ignores distractions."
+    id: 15,
+    dogName: "Bailey",
+    breed: "Poodle",
+    image: "https://images.pexels.com/photos/981062/pexels-photo-981062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    challenge: "Chasing cars and bicycles",
+    achievement: "Ignores fast-moving objects",
+    duration: "10 weeks",
+    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    fullStory: "Bailey had a strong herding instinct and would chase anything that moved, putting himself in danger.\n\nWe worked on:\n- Teaching impulse control\n- Redirecting focus onto his handler\n- Rewarding calm behavior near moving objects\n\nNow, Bailey remains focused on his owner and ignores distractions."
   }
 ];

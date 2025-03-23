@@ -10,7 +10,7 @@ function TipArticle() {
     return (
       <div className="text-center py-12">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Article Not Found</h2>
-        <Link to="/tips" className="text-blue-600 hover:text-blue-800">
+        <Link to="/tips" className="text-brand-blue hover:text-blue-800">
           Return to Tips
         </Link>
       </div>
@@ -23,7 +23,7 @@ function TipArticle() {
         <div className="p-8">
           <Link 
             to="/tips"
-            className="text-blue-600 hover:text-blue-800 mb-6 inline-block"
+            className="text-brand-blue hover:text-blue-800 mb-6 inline-block"
           >
             ← Back to Tips
           </Link>
