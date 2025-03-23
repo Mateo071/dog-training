@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.7",
+    "@strapi/blocks-react-renderer": "^1.0.2",
     "framer-motion": "^12.5.0",
     "hamburger-react": "^2.5.2",
     "ra-data-json-server": "^4.16.11",
