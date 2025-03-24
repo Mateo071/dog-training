@@ -9,7 +9,13 @@ function Programs() {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('https://natural-melody-8463e9c17b.strapiapp.com/api/programs');
+      const response = await fetch('https://natural-melody-8463e9c17b.strapiapp.com/api/programs', {
+        method: 'GET',
+        headers: {
+          'Authorization': `BEARER ${import.meta.env.VITE_APP_STRAPI_API_KEY}`,
+          'Content-Type': 'application/json',
+        },
+      });
       if (!response.ok) {
         throw new Error(`Error: ${response.status}`);
       }
