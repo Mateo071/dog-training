@@ -12,7 +12,7 @@ import AllSuccessStories from './components/AllSuccessStories';
 import GoogleReviews from './components/GoogleReviews';
 import AboutUs from './components/AboutUs';
 import Navbar from './components/Navbar';
-import MainHeading from './components/MainHeading';
+import Hero from './components/Hero';
 import WhyUs from './components/WhyUs';
 import TipArticle from './components/TipArticle';
 import MobileNav from './components/MobileNav';
@@ -98,7 +98,7 @@ function MainLayout() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/" element={
             <>
-              <MainHeading />
+              <Hero />
               <Testimonials />
               <SuccessStories limit={3} />
               <CTA />
