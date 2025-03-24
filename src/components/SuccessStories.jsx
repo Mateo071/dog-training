@@ -13,9 +13,9 @@ function SuccessStories({ limit }) {
         throw new Error(`Error: ${response.status}`);
       }
       const result = await response.json();
-      const fetchedData = result.data;
-      setData(fetchedData);
-      setDisplayedStories(limit ? fetchedData.slice(0, limit) : fetchedData);
+      const sortedData = result.data.sort((a, b) => a.Order - b.Order);
+      setData(sortedData);
+      setDisplayedStories(limit ? sortedData.slice(0, limit) : sortedData);
     } catch (err) {
       setError(err.message);
     }

@@ -13,7 +13,8 @@ const Tips = () => {
         throw new Error(`Error: ${response.status}`);
       }
       const result = await response.json();
-      setData(result.data);
+      const sortedDataByDate = result.data.sort((a, b) => new Date(b.Date) - new Date(a.Date));
+      setData(sortedDataByDate);
     } catch (err) {
       setError(err.message);
     }

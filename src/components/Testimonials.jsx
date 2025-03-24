@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { testimonials } from '../data/testimonials';
 
 function Testimonials() {
   const [data, setData] = useState(null);
@@ -12,7 +11,8 @@ function Testimonials() {
         throw new Error(`Error: ${response.status}`);
       }
       const result = await response.json();
-      setData(result.data);
+      const sortedData = result.data.sort((a, b) => a.Order - b.Order);
+      setData(sortedData);
     } catch (err) {
       setError(err.message);
     }
