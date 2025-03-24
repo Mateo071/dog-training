@@ -41,7 +41,6 @@ const Tips = () => {
               key={article.documentId}
               className="bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl"
             >
-              {console.log(`data: ${data[0].id}`)}
             <Link to={`/tips/${article.documentId}`}>
               <div className="p-6">
                 <div className="flex justify-between items-start mb-2">

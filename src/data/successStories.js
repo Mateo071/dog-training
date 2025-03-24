@@ -222,7 +222,7 @@ Now Bailey greets guests politely, making visits enjoyable for everyone.`
   },
   {
     id: 15,
-    dogName: "Bailey",
+    dogName: "Nori",
     breed: "Poodle",
     image: "https://images.pexels.com/photos/981062/pexels-photo-981062.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
     challenge: "Chasing cars and bicycles",
