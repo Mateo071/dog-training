@@ -9,7 +9,7 @@ import Footer from './components/Footer';
 import SuccessStories from './components/SuccessStories';
 import SuccessStory from './components/SuccessStory';
 import AllSuccessStories from './components/AllSuccessStories';
-import GoogleReviews from './components/GoogleReviews';
+// import GoogleReviews from './components/GoogleReviews';
 import AboutUs from './components/AboutUs';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -103,7 +103,7 @@ function MainLayout() {
               <SuccessStories limit={3} />
               <CTA />
               <WhyUs />
-              <GoogleReviews />
+              {/* <GoogleReviews /> */}
             </>
           } />
         </Routes>
