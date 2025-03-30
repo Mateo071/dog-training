@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { routes } from '../data/routes';
+import { NavLink } from 'react-router-dom';
 
 function Navbar() {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -25,13 +26,19 @@ function Navbar() {
     >
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
-          <Link to="/" className="text-2xl font-bold text-white hover:text-gray-100 transition-colors">
+          <Link to='/' className='text-2xl font-bold text-white hover:text-gray-100 transition-colors'>
             Flores Dog Training
           </Link>
-          <nav className="flex space-x-8">
+          <nav className='flex space-x-8'>
             {
               routes.map(route => (
-                <Link to={route.path} key={route.id} className="text-white font-medium hover:text-gray-100 transition-colors">{route.name}</Link>
+                <NavLink
+                  to={route.path}
+                  key={route.id}
+                  className={({ isActive }) => `text-white hover:text-gray-100 transition-colors ${isActive ? 'font-bold' : 'font-medium'}`}
+                >
+                  {route.name}
+                </NavLink>
               ))
             }
           </nav>
