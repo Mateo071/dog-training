@@ -39,7 +39,7 @@ function Hero() {
     <div 
     className="relative h-[600px] -mx-4 mb-12 flex items-center justify-center bg-cover bg-center bg-fixed"
     style={{
-      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${data.Background.formats.large.url})`
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${data.Background?.formats?.large?.url})`
     }}
   >
     <div className={`text-center max-w-4xl mx-auto px-4`}>
