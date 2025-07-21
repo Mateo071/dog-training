@@ -36,7 +36,7 @@ function SuccessStory() {
   };
 
   if (!data) {
-    return <div>Loading...</div>
+    return <div></div>
   };
 
   if (!data) {
