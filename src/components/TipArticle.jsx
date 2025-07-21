@@ -37,7 +37,7 @@ function TipArticle() {
   if (!data) {
     return (
     <>
-      <div>Loading...</div>
+      <div></div>
       <div className="text-center py-12">
         <h2 className="text-2xl font-bold text-gray-800 mb-4">Article Not Found</h2>
         <Link to="/tips" className="text-brand-blue hover:text-blue-800">
