@@ -18,5 +18,10 @@ export const routes = [
     id: 4,
     name: "Contact",
     path: "/contact"
+  },
+  {
+    id: 5,
+    name: "Dashboard",
+    path: "/dashboard"
   }
 ]

@@ -1,0 +1,21 @@
+User-agent: *
+Allow: /
+Allow: /about
+Allow: /programs
+Allow: /tips
+Allow: /success-stories
+Allow: /contact
+
+# Disallow private/authenticated areas
+Disallow: /dashboard*
+Disallow: /login*
+Disallow: /signup*
+Disallow: /onboarding*
+Disallow: /messages*
+Disallow: /sessions*
+Disallow: /admin*
+Disallow: /payment*
+Disallow: /referrals*
+
+# Sitemap location
+Sitemap: /sitemap.xml

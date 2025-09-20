@@ -10,19 +10,26 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
+    "@hookform/resolvers": "^5.2.0",
     "@mui/icons-material": "^5.15.7",
     "@mui/material": "^5.15.7",
     "@strapi/blocks-react-renderer": "^1.0.2",
+    "@supabase/supabase-js": "^2.52.1",
+    "ccundo": "^1.1.1",
+    "firebase": "^12.2.1",
     "framer-motion": "^12.5.0",
+    "googleapis": "^159.0.0",
     "hamburger-react": "^2.5.2",
     "ra-data-json-server": "^4.16.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hook-form": "^7.61.1",
     "react-router-dom": "^6.22.0",
-    "react-use": "^17.6.0"
+    "react-use": "^17.6.0",
+    "twilio": "^5.8.0",
+    "zod": "^4.0.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
