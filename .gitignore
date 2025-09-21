@@ -23,6 +23,23 @@ dist-ssr
 *.sln
 *.sw?
 
+DEPLOYMENT.md
+PLAN.md
 CLAUDE.md
 
+# Security - Service Account Keys
+keys/
+email-templates/
+*.json
+*service-account*
+*.pem
+.credentials/
+
+# Firebase Functions
+functions/.env
+functions/lib/
+
 package-lock.json
+
+# Development directories
+scripts/
