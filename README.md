@@ -1,5 +1,7 @@
 # Flores Dog Training Business Management System
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/adb741f2-87ed-421c-8c6b-4d6e8d82df48/deploy-status)](https://app.netlify.com/projects/floresdogtraining/deploys)
+
 A comprehensive React-based business management platform for Flores Dog Training, featuring both a public marketing website and a complete client portal with authentication, admin dashboard, and database management. Built with Vite, TailwindCSS, Material-UI, and Supabase as the complete backend solution.
 
 ## 🚀 Technologies

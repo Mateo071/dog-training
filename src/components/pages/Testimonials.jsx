@@ -16,7 +16,7 @@ function Testimonials() {
       if (testimonialsData && testimonialsData.length > 0) {
         // Transform the data to match the expected format
         const transformedData = await Promise.all(testimonialsData.map(async (testimonial) => {
-          let photoUrl = '/default-avatar.jpg';
+          let photoUrl = 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200';
           
           if (testimonial.fields?.photo) {
             if (testimonial.fields.photo.startsWith('http')) {
@@ -27,7 +27,7 @@ function Testimonials() {
               
               // Get the public URL from Supabase storage
               const urlResult = await db.getPublicMediaUrl('testimonials', fileName);
-              photoUrl = urlResult.data?.publicUrl || urlResult.publicUrl || '/default-avatar.jpg';
+              photoUrl = urlResult.data?.publicUrl || urlResult.publicUrl || 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200';
             }
           }
           
@@ -56,7 +56,7 @@ function Testimonials() {
             Location: 'San Diego, CA',
             Quote: 'Flores Dog Training transformed our reactive rescue dog into a calm, confident companion. The results exceeded our expectations!',
             Photo: {
-              url: '/default-avatar.jpg',
+              url: 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200',
               alternativeText: 'Sarah Johnson photo'
             },
             Order: 1
@@ -67,7 +67,7 @@ function Testimonials() {
             Location: 'La Jolla, CA',
             Quote: 'Professional, knowledgeable, and patient. Our puppy learned basic commands and proper socialization skills quickly.',
             Photo: {
-              url: '/default-avatar.jpg',
+              url: 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200',
               alternativeText: 'Mike Rodriguez photo'
             },
             Order: 2
@@ -78,7 +78,7 @@ function Testimonials() {
             Location: 'Pacific Beach, CA',
             Quote: 'The personalized training approach made all the difference. Highly recommend for any dog behavior challenges!',
             Photo: {
-              url: '/default-avatar.jpg',
+              url: 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200',
               alternativeText: 'Jessica Chen photo'
             },
             Order: 3
@@ -97,7 +97,7 @@ function Testimonials() {
           Location: 'San Diego, CA',
           Quote: 'Flores Dog Training transformed our reactive rescue dog into a calm, confident companion. The results exceeded our expectations!',
           Photo: {
-            url: '/default-avatar.jpg',
+            url: 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200',
             alternativeText: 'Sarah Johnson photo'
           },
           Order: 1
@@ -108,7 +108,7 @@ function Testimonials() {
           Location: 'La Jolla, CA',
           Quote: 'Professional, knowledgeable, and patient. Our puppy learned basic commands and proper socialization skills quickly.',
           Photo: {
-            url: '/default-avatar.jpg',
+            url: 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200',
             alternativeText: 'Mike Rodriguez photo'
           },
           Order: 2
@@ -119,7 +119,7 @@ function Testimonials() {
           Location: 'Pacific Beach, CA',
           Quote: 'The personalized training approach made all the difference. Highly recommend for any dog behavior challenges!',
           Photo: {
-            url: '/default-avatar.jpg',
+            url: 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200',
             alternativeText: 'Jessica Chen photo'
           },
           Order: 3
@@ -186,7 +186,7 @@ function Testimonials() {
                   alt={testimonial.Photo.alternativeText}
                   className="w-12 h-12 rounded-full mr-4 object-cover"
                   onError={(e) => {
-                    e.target.src = '/default-avatar.jpg';
+                    e.target.src = 'https://ui-avatars.com/api/?name=Client&background=0f172a&color=fff&size=200';
                   }}
                 />
                 <div>
