@@ -229,13 +229,7 @@ function App() {
               <ReferralProgram />
             </ProtectedRoute>
           } />
-          
-          {/* Legacy Strapi admin redirect */}
-          <Route path='/admin' Component={() => {
-            window.location.href='https://natural-melody-8463e9c17b.strapiapp.com/admin';
-            return null;
-          }} />
-          
+
           {/* Public routes */}
           <Route path="/*" element={<MainLayout />} />
         </Routes>

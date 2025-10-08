@@ -95,7 +95,7 @@ function Hero() {
 
   if (loading) {
     return (
-      <div className="relative h-[600px] -mx-4 mb-12 flex items-center justify-center bg-gray-100">
+      <div className="relative h-[664px] -mx-4 mb-12 flex items-center justify-center bg-gray-100">
         <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-teal-600"></div>
       </div>
     );
@@ -103,7 +103,7 @@ function Hero() {
 
   if (error && !data) {
     return (
-      <div className="relative h-[600px] -mx-4 mb-12 flex items-center justify-center bg-gray-900">
+      <div className="relative h-[664px] -mx-4 mb-12 flex items-center justify-center bg-gray-900">
         <div className="text-center text-white">
           <h1 className="text-3xl font-bold mb-4">Flores Dog Training</h1>
           <p className="text-xl">Professional dog training services</p>
@@ -113,10 +113,11 @@ function Hero() {
   }
 
   return (
-    <div 
-      className="relative h-[600px] -mx-4 mb-12 flex items-center justify-center bg-cover bg-center bg-fixed"
+    <div
+      className="relative h-[664px] -mx-4 mb-12 flex items-center justify-center bg-cover bg-fixed"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${data.Background?.formats?.large?.url})`
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${data.Background?.formats?.large?.url})`,
+        backgroundPosition: 'center 20%'
       }}
     >
       <div className="text-center max-w-4xl mx-auto px-4">

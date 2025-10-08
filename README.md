@@ -19,7 +19,7 @@ A comprehensive React-based business management platform for Flores Dog Training
 ![Twilio](https://img.shields.io/badge/Twilio-5.8.0-F22F46?style=for-the-badge&logo=twilio&logoColor=white)
 ![Google Analytics](https://img.shields.io/badge/Google_Analytics-159.0.0-E37400?style=for-the-badge&logo=google-analytics&logoColor=white)
 ![ESLint](https://img.shields.io/badge/ESLint-9.21.0-4B32C3?style=for-the-badge&logo=eslint&logoColor=white)
-![Yarn](https://img.shields.io/badge/Yarn-Package_Manager-2C8EBB?style=for-the-badge&logo=yarn&logoColor=white)
+![Bun](https://img.shields.io/badge/Bun-Package_Manager-000000?style=for-the-badge&logo=bun&logoColor=white)
 
 ## 📋 Table of Contents
 
@@ -133,7 +133,7 @@ A comprehensive React-based business management platform for Flores Dog Training
 
 ### Development Tools
 - **Build Tool**: Vite
-- **Package Manager**: Yarn
+- **Package Manager**: Bun
 - **Linting**: ESLint with React hooks and refresh plugins
 - **Version Control**: Git with Husky pre-commit hooks
 
@@ -220,7 +220,7 @@ src/
 ### Prerequisites
 
 - Node.js (v18 or higher)
-- Yarn package manager
+- Bun package manager ([install here](https://bun.sh))
 
 ### Installation
 
@@ -232,7 +232,7 @@ cd dog-training
 
 2. Install dependencies:
 ```bash
-yarn install
+bun install
 ```
 
 3. Create a `.env` file in the root directory with the following variables:
@@ -268,17 +268,17 @@ VITE_TWILIO_PHONE_NUMBER=your_twilio_phone_number
 
 4. Start the development server:
 ```bash
-yarn dev
+bun dev
 ```
 
 The application will be available at `http://localhost:5173`
 
 ## 📋 Available Scripts
 
-- `yarn dev` - Start development server
-- `yarn build` - Build for production
-- `yarn preview` - Preview production build locally
-- `yarn lint` - Run ESLint to check code quality
+- `bun dev` - Start development server
+- `bun build` - Build for production
+- `bun preview` - Preview production build locally
+- `bun lint` - Run ESLint to check code quality
 
 ## 🌐 Routes
 

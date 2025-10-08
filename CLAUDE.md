@@ -8,10 +8,10 @@ This is a React-based dog training business management system for Flores Dog Tra
 ## Development Commands
 
 ### Core Commands
-- `yarn dev` - Start development server (Vite)
-- `yarn build` - Build for production
-- `yarn preview` - Preview production build locally
-- `yarn lint` - Run ESLint to check code quality
+- `bun dev` - Start development server (Vite)
+- `bun build` - Build for production
+- `bun preview` - Preview production build locally
+- `bun lint` - Run ESLint to check code quality
 
 ### Testing
 No test framework is configured in this project.
@@ -182,7 +182,7 @@ Required environment variables (stored in `.env` or `.env.local`):
 - **Firebase Functions**: Server-side analytics data processing
 
 ## Development Notes
-- Uses Yarn for package management
+- Uses Bun for package management
 - ESLint configured with React hooks and React refresh plugins
 - Custom ESLint rule for unused variables: `varsIgnorePattern: '^[A-Z_]'`
 - TailwindCSS with custom brand colors (blue and teal variants)
