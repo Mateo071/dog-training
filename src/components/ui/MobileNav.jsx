@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Squash as Hamburger } from 'hamburger-react';
-import { AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { routes } from '../../data/routes';
 
