@@ -26,9 +26,4 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
   }
 })
 
-// Add global error listener
-supabase.auth.onAuthStateChange((event, session) => {
-  // Auth state changes are handled by AuthContext
-})
-
 export default supabase
