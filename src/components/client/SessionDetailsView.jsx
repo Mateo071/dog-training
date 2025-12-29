@@ -58,7 +58,7 @@ const SessionDetailsView = ({
   };
 
   const groupedSessions = groupSessionsByDate(sessions);
-  const sortedDates = Object.keys(groupedSessions).sort((a, b) => new Date(a) - new Date(b));
+  const sortedDates = Object.keys(groupedSessions).sort((a, b) => new Date(b) - new Date(a));
 
   if (sessions.length === 0) {
     return (

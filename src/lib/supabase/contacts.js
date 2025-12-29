@@ -126,117 +126,80 @@ export const contacts = {
 
     if (submissionError) throw submissionError;
 
-    // Check if user already exists with this email in database
-    const { data: existingUser, error: checkError } = await supabase
-      .from('users')
-      .select('id, email')
-      .eq('email', submission.email)
-      .single();
-
-    if (existingUser && !checkError) {
-      // Check if this contact submission is already converted
-      if (submission.status === 'converted' && submission.assigned_profile_id) {
-        throw new Error('This contact submission has already been converted to a client');
-      }
-      
-      // Check if there's already a profile for this user
-      const { data: existingProfile, error: profileCheckError } = await supabase
-        .from('profiles')
-        .select('id')
-        .eq('user_id', existingUser.id)
-        .single();
-        
-      if (existingProfile && !profileCheckError) {
-        // Update the contact submission to link to existing profile
-        await supabase
-          .from('contact_submissions')
-          .update({ 
-            assigned_profile_id: existingProfile.id,
-            status: 'converted'
-          })
-          .eq('id', submissionId);
-          
-        throw new Error(`A client account already exists for ${submission.email}. The contact submission has been linked to the existing profile.`);
-      }
+    // Check if this contact submission is already converted
+    if (submission.status === 'converted' && submission.assigned_profile_id) {
+      throw new Error('This contact submission has already been converted to a client');
     }
 
     // Generate a temporary password (will be sent to the user)
     const tempPassword = `Welcome${Math.random().toString(36).substring(2, 10)}!`;
-    
+
     let userId;
-    let authCreated = false;
-    
-    // Try to create auth user - first try admin API if available
-    try {
-      if (supabase.auth.admin && supabase.auth.admin.createUser) {
-        const { data: authData, error: authError } = await supabase.auth.admin.createUser({
-          email: submission.email,
-          password: tempPassword,
-          email_confirm: true, // Auto-confirm email
-          user_metadata: {
-            role: 'client',
-            created_from_contact_form: true
-          }
-        });
-        
-        if (!authError && authData?.user) {
-          userId = authData.user.id;
-          authCreated = true;
-        }
-      }
-    } catch (adminError) {
-      console.log('Admin API not available, using regular signup');
+
+    // Create auth user via Edge Function (uses service role key securely)
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session?.access_token) {
+      throw new Error('You must be logged in as an admin to convert contacts to clients');
     }
-    
-    // Fallback to regular signup if admin API didn't work
-    if (!authCreated) {
-      // Store current session before signup
-      const { data: { session: currentSession } } = await supabase.auth.getSession();
-      
-      const { data: signupData, error: signupError } = await supabase.auth.signUp({
+
+    const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+    const response = await fetch(`${supabaseUrl}/functions/v1/create-auth-user`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${session.access_token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
         email: submission.email,
         password: tempPassword,
-        options: {
-          emailRedirectTo: undefined, // Prevent auto-signin
-          data: {
-            role: 'client',
-            created_from_contact_form: true
-          }
+        userMetadata: {
+          role: 'client',
+          created_from_contact_form: true
         }
-      });
-      
-      if (signupError) {
-        // Check if it's because user already exists
-        if (signupError.message === 'User already registered') {
-          // User exists in auth, check if they have a profile
-          const { data: existingAuthUser } = await supabase.auth.admin?.getUser?.(submission.email)
-            .catch(() => ({ data: null }));
-          
-          if (existingAuthUser?.user) {
-            userId = existingAuthUser.user.id;
-            authCreated = true;
-            // Continue to check/create profile below
-          } else {
-            throw new Error(`An authentication account already exists for ${submission.email}. Please delete the existing user from Supabase Authentication first, or use a different email.`);
-          }
-        } else {
-          throw signupError;
-        }
-      } else {
-        userId = signupData?.user?.id || crypto.randomUUID();
-        
-        // If signup auto-signed in the new user, sign back to admin
-        if (currentSession && signupData?.session) {
-          await supabase.auth.setSession({
-            access_token: currentSession.access_token,
-            refresh_token: currentSession.refresh_token
-          });
-        }
-        
-        // Wait a moment for the trigger to create the user record
-        await new Promise(resolve => setTimeout(resolve, 1000));
-      }
+      }),
+    });
+
+    const result = await response.json();
+
+    if (!response.ok && !result.alreadyExists) {
+      throw new Error(result.error || 'Failed to create auth user');
     }
+
+    // Handle case where user already exists in auth
+    if (result.alreadyExists && result.user) {
+      userId = result.user.id;
+
+      // Check if there's already a profile for this user
+      const { data: existingProfile, error: profileCheckError } = await supabase
+        .from('profiles')
+        .select('id')
+        .eq('user_id', userId)
+        .single();
+
+      if (existingProfile && !profileCheckError) {
+        // Update the contact submission to link to existing profile
+        await supabase
+          .from('contact_submissions')
+          .update({
+            assigned_profile_id: existingProfile.id,
+            status: 'converted'
+          })
+          .eq('id', submissionId);
+
+        throw new Error(`A client account already exists for ${submission.email}. The contact submission has been linked to the existing profile.`);
+      }
+      // If no profile exists, continue to create one for this existing auth user
+    } else {
+      userId = result.user?.id;
+    }
+
+    if (!userId) {
+      throw new Error('Failed to get user ID from auth creation');
+    }
+
+    // Wait a moment for any database triggers to complete
+    await new Promise(resolve => setTimeout(resolve, 500));
 
     // Create or update the user record
     const { error: userError } = await supabase

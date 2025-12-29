@@ -356,12 +356,35 @@ export const users = {
 
     if (userDeleteError) throw userDeleteError;
 
-    // 11. Delete from Supabase Auth (optional - may want to keep for audit)
+    // 11. Delete from Supabase Auth via Edge Function
+    // The admin API requires service role key, so we call our Edge Function
     try {
-      await supabase.auth.admin.deleteUser(userData.id);
+      const { data: { session } } = await supabase.auth.getSession();
+
+      if (session?.access_token) {
+        const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+        const response = await fetch(`${supabaseUrl}/functions/v1/delete-auth-user`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${session.access_token}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ userId: userData.id }),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok && !result.message?.includes('not found')) {
+          console.warn('Could not delete auth user:', result.error);
+        } else {
+          console.log('Auth user deleted successfully');
+        }
+      } else {
+        console.warn('No session available to delete auth user');
+      }
     } catch (authError) {
       console.warn('Could not delete auth user:', authError);
-      // Continue - this is not critical
+      // Continue - the public.users record is already deleted
     }
 
     return { success: true };
