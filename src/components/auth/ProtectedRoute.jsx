@@ -3,7 +3,7 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
 const ProtectedRoute = ({ children, adminOnly = false }) => {
-  const { user, profile, loading, isAdmin } = useAuth();
+  const { user, loading, isAdmin, mustChangePassword } = useAuth();
   const location = useLocation();
 
   // Show loading spinner while checking auth state
@@ -21,6 +21,11 @@ const ProtectedRoute = ({ children, adminOnly = false }) => {
   // Redirect to login if not authenticated
   if (!user) {
     return <Navigate to="/login" state={{ from: location }} replace />;
+  }
+
+  // Redirect to password change if required (but allow access to change-password-required page)
+  if (mustChangePassword && location.pathname !== '/change-password-required') {
+    return <Navigate to="/change-password-required" replace />;
   }
 
   // Check admin access if required

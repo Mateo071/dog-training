@@ -162,7 +162,7 @@ const Settings = () => {
       <div className="border-t pt-6">
         <h3 className="text-lg font-medium text-gray-900 mb-4">Account Security</h3>
         <button
-          onClick={() => navigate('/forgot-password')}
+          onClick={() => navigate('/dashboard/change-password')}
           className="px-4 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-brand-blue"
         >
           Change Password

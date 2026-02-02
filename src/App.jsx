@@ -22,6 +22,8 @@ import { AuthProvider } from './contexts/AuthContext';
 import Login from './components/auth/Login';
 import Signup from './components/auth/Signup';
 import ForgotPassword from './components/auth/ForgotPassword';
+import ChangePassword from './components/auth/ChangePassword';
+import ChangePasswordRequired from './components/auth/ChangePasswordRequired';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import Dashboard from './components/Dashboard';
 import ContactSubmissions from './components/admin/ContactSubmissions';
@@ -29,6 +31,7 @@ import ClientManagement from './components/admin/ClientManagement';
 import ClientProfile from './components/admin/ClientProfile';
 import EditClientProfile from './components/admin/EditClientProfile';
 import AddDog from './components/admin/AddDog';
+import EditDog from './components/admin/EditDog';
 import CreateClient from './components/admin/CreateClient';
 import MessageComposer from './components/admin/MessageComposer';
 import MessageTemplates from './components/admin/MessageTemplates';
@@ -93,7 +96,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
-          
+          <Route path="/change-password-required" element={<ChangePasswordRequired />} />
+
           {/* Protected dashboard routes */}
           <Route path="/dashboard" element={
             <ProtectedRoute>
@@ -106,7 +110,13 @@ function App() {
               <Settings />
             </ProtectedRoute>
           } />
-          
+
+          <Route path="/dashboard/change-password" element={
+            <ProtectedRoute>
+              <ChangePassword />
+            </ProtectedRoute>
+          } />
+
           {/* Admin Routes */}
           <Route path="/dashboard/contact-submissions" element={
             <ProtectedRoute adminOnly={true}>
@@ -141,6 +151,12 @@ function App() {
           <Route path="/dashboard/clients/:clientId/dogs/add" element={
             <ProtectedRoute adminOnly={true}>
               <AddDog />
+            </ProtectedRoute>
+          } />
+
+          <Route path="/dashboard/clients/:clientId/dogs/:dogId/edit" element={
+            <ProtectedRoute adminOnly={true}>
+              <EditDog />
             </ProtectedRoute>
           } />
           

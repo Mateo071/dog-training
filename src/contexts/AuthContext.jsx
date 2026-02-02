@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState, useRef, useMemo } from 'react';
+import { createContext, useContext, useEffect, useState, useRef, useMemo } from 'react';
 import { auth, db } from '../lib/supabase';
 
 const AuthContext = createContext({});
@@ -16,7 +16,8 @@ export const AuthProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
+  const [mustChangePassword, setMustChangePassword] = useState(false);
+
   // Add refs to track loading state and prevent race conditions
   const isLoadingProfile = useRef(false);
   const profileLoadAttempts = useRef(0);
@@ -51,8 +52,15 @@ export const AuthProvider = ({ children }) => {
         throw new Error(`Database connectivity failed: ${connectivityError.message}`);
       }
 
-      // Step 3: Check if user exists in users table first
-      const { data: userData, error: userError } = await db.getUser(userId);
+      // Step 3: Check if user exists in users table first and check password change requirement
+      const { data: userData } = await db.getUser(userId);
+
+      // Check if user must change password
+      if (userData && userData.must_change_password) {
+        setMustChangePassword(true);
+      } else {
+        setMustChangePassword(false);
+      }
 
       // Step 4: Load profile with enhanced timeout and logging
       // Load profile with timeout
@@ -127,7 +135,7 @@ export const AuthProvider = ({ children }) => {
             
             setProfile(createdProfile);
             return;
-          } catch (createError) {
+          } catch {
             // Fall through to fallback profile creation
           }
         }
@@ -290,9 +298,10 @@ export const AuthProvider = ({ children }) => {
       setLoading(true);
       const { error } = await auth.signOut();
       if (error) throw error;
-      
+
       setUser(null);
       setProfile(null);
+      setMustChangePassword(false);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -344,6 +353,7 @@ export const AuthProvider = ({ children }) => {
     profile,
     loading,
     error,
+    mustChangePassword,
     signUp,
     signIn,
     signOut,
